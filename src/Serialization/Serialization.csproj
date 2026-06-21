@@ -6,6 +6,7 @@
     <AssemblyName>Atya.Foundation.Serialization</AssemblyName>
     <RootNamespace>Atya.Foundation.Serialization</RootNamespace>
     <IsPackable>true</IsPackable>
+    <PackageValidationBaselineVersion>1.0.0</PackageValidationBaselineVersion>
     <Authors>Arsen Asulyan</Authors>
     <Copyright>Copyright (c) 2026 Arsen Asulyan</Copyright>
     <Description>Serialization abstractions and helpers for Atya foundation packages.</Description>
