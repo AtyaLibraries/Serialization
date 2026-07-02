@@ -27,6 +27,20 @@ public sealed class JsonSerializationBehaviorTests
     }
 
     [Fact]
+    public void Serialize_Should_Use_CamelCase_Dictionary_Keys()
+    {
+        Dictionary<string, int> payload = new()
+        {
+            ["TotalCount"] = 2,
+        };
+
+        string json = JsonSerializer.Serialize(payload, JsonSerializerConfiguration.Default);
+
+        json.Should().Contain("\"totalCount\":2");
+        json.Should().NotContain("TotalCount");
+    }
+
+    [Fact]
     public void Deserialize_Should_Be_Case_Insensitive()
     {
         const string json = """
