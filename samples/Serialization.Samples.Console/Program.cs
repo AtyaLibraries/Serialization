@@ -3,8 +3,14 @@ using Atya.Foundation.Serialization;
 
 namespace Serialization.Samples.ConsoleApp;
 
+/// <summary>
+/// Runs the Atya.Foundation.Serialization console sample.
+/// </summary>
 public static class Program
 {
+    /// <summary>
+    /// Demonstrates shared JSON serializer defaults.
+    /// </summary>
     public static void Main()
     {
         SampleRequest request = new("Ada Lovelace", UserRole.Admin, null);
