@@ -54,7 +54,7 @@ public static class JsonSerializerConfiguration
     {
         JsonSerializerOptions options = new JsonSerializerOptions();
         ApplyDefaults(options);
-        options.TypeInfoResolver ??= new DefaultJsonTypeInfoResolver();
+        options.TypeInfoResolver = new DefaultJsonTypeInfoResolver();
         options.MakeReadOnly();
         return options;
     }
