@@ -12,7 +12,7 @@ public sealed class JsonSerializerConfigurationTests
         JsonSerializerOptions options = JsonSerializerConfiguration.CreateDefault();
 
         options.PropertyNamingPolicy.Should().BeSameAs(JsonNamingPolicy.CamelCase);
-        options.DictionaryKeyPolicy.Should().BeSameAs(JsonNamingPolicy.CamelCase);
+        options.DictionaryKeyPolicy.Should().BeNull();
         options.PropertyNameCaseInsensitive.Should().BeTrue();
         options.DefaultIgnoreCondition.Should().Be(JsonIgnoreCondition.WhenWritingNull);
         options.WriteIndented.Should().BeFalse();
@@ -78,7 +78,7 @@ public sealed class JsonSerializerConfigurationTests
 
         result.Should().BeSameAs(options);
         options.PropertyNamingPolicy.Should().BeSameAs(JsonNamingPolicy.CamelCase);
-        options.DictionaryKeyPolicy.Should().BeSameAs(JsonNamingPolicy.CamelCase);
+        options.DictionaryKeyPolicy.Should().BeNull();
         options.PropertyNameCaseInsensitive.Should().BeTrue();
         options.DefaultIgnoreCondition.Should().Be(JsonIgnoreCondition.WhenWritingNull);
         options.WriteIndented.Should().BeFalse();
