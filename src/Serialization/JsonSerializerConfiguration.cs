@@ -40,10 +40,10 @@ public static class JsonSerializerConfiguration
         ArgumentNullException.ThrowIfNull(options);
 
         options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-        options.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
-        options.PropertyNameCaseInsensitive = JsonSerializerDefaults.PropertyNameCaseInsensitive;
+        options.DictionaryKeyPolicy = null;
+        options.PropertyNameCaseInsensitive = AtyaJsonDefaults.PropertyNameCaseInsensitive;
         options.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-        options.WriteIndented = JsonSerializerDefaults.WriteIndented;
+        options.WriteIndented = AtyaJsonDefaults.WriteIndented;
 
         EnsureStringEnumConverter(options);
 

@@ -27,17 +27,23 @@ public sealed class JsonSerializationBehaviorTests
     }
 
     [Fact]
-    public void Serialize_Should_Use_CamelCase_Dictionary_Keys()
+    public void Serialize_Should_Preserve_Dictionary_Keys_Verbatim()
     {
         Dictionary<string, int> payload = new()
         {
-            ["TotalCount"] = 2,
+            ["X-Correlation-ID"] = 1,
+            ["SKU"] = 2,
+            ["Tenant_Id"] = 3,
         };
 
         string json = JsonSerializer.Serialize(payload, JsonSerializerConfiguration.Default);
+        Dictionary<string, int>? roundTripped = JsonSerializer.Deserialize<Dictionary<string, int>>(
+            json,
+            JsonSerializerConfiguration.Default);
 
-        json.Should().Contain("\"totalCount\":2");
-        json.Should().NotContain("TotalCount");
+        json.Should().Contain("\"X-Correlation-ID\":1").And.Contain("\"SKU\":2").And.Contain("\"Tenant_Id\":3");
+        roundTripped.Should().NotBeNull();
+        roundTripped!.Keys.Should().BeEquivalentTo("X-Correlation-ID", "SKU", "Tenant_Id");
     }
 
     [Fact]
