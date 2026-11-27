@@ -15,7 +15,7 @@ public sealed class JsonSerializerConfigurationExtensionsTests
 
         result.Should().BeSameAs(options);
         options.PropertyNamingPolicy.Should().BeSameAs(JsonNamingPolicy.CamelCase);
-        options.DictionaryKeyPolicy.Should().BeSameAs(JsonNamingPolicy.CamelCase);
+        options.DictionaryKeyPolicy.Should().BeNull();
         options.Converters.OfType<JsonStringEnumConverter>().Should().ContainSingle();
     }
 
@@ -26,7 +26,7 @@ public sealed class JsonSerializerConfigurationExtensionsTests
 
         options.IsReadOnly.Should().BeFalse();
         options.PropertyNamingPolicy.Should().BeSameAs(JsonNamingPolicy.CamelCase);
-        options.DictionaryKeyPolicy.Should().BeSameAs(JsonNamingPolicy.CamelCase);
+        options.DictionaryKeyPolicy.Should().BeNull();
         options.PropertyNameCaseInsensitive.Should().BeTrue();
         options.DefaultIgnoreCondition.Should().Be(JsonIgnoreCondition.WhenWritingNull);
     }

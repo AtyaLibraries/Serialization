@@ -17,7 +17,7 @@
 
 `Atya.Foundation.Serialization` provides a small, shared `System.Text.Json` configuration surface for packages that need consistent JSON behavior without repeating options setup in every project.
 
-The package configures camelCase property and dictionary keys, case-insensitive property reads, camelCase string enum values, null-value omission, and non-indented output.
+The package configures camelCase property names (dictionary keys are preserved verbatim), case-insensitive property reads, camelCase string enum values, null-value omission, and non-indented output.
 
 ## Features
 
@@ -113,8 +113,8 @@ JsonSerializerOptions options = new JsonSerializerOptions()
 | `JsonSerializerConfiguration.ApplyDefaults(JsonSerializerOptions)` | Applies the package defaults to an existing options instance. |
 | `JsonSerializerConfigurationExtensions.ApplyAtyaDefaults(this JsonSerializerOptions)` | Extension wrapper over `ApplyDefaults(...)`. |
 | `JsonSerializerConfigurationExtensions.CreateAtyaDefaults()` | Extension-oriented factory for a mutable default options instance. |
-| `JsonSerializerDefaults.PropertyNameCaseInsensitive` | Constant value for case-insensitive property reads. |
-| `JsonSerializerDefaults.WriteIndented` | Constant value for compact JSON output. |
+| `AtyaJsonDefaults.PropertyNameCaseInsensitive` | Constant value for case-insensitive property reads. |
+| `AtyaJsonDefaults.WriteIndented` | Constant value for compact JSON output. |
 
 ## Dependencies
 
